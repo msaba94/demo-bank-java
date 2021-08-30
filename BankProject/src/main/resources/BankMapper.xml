@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bank_project.demo.mapper.BankMapper">
+
+	<select id="getUserByEmail" parameterType="map"
+		resultType="com.bank_project.demo.model.User">
+		SELECT * FROM User WHERE emailId = #{emailId}
+	</select>
+
+	<insert id="addUser"
+		parameterType="com.bank_project.demo.model.User"
+		useGeneratedKeys="true" keyProperty="userId" keyColumn="userId">
+		INSERT INTO
+		User (fullName, emailId, password)
+		VALUES (#{fullName}, #{emailId}, #{password})
+	</insert>
+
+</mapper>
